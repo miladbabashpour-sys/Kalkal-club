@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<title>پنل مدیریت کل‌کل کلاب</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+<div class="container">
+
+
+<div class="logo">
+👑
+<h1>پنل مدیریت</h1>
+</div>
+
+
+
+<div class="card" id="loginAdmin">
+
+
+<h2>ورود میلاد</h2>
+
+
+<input id="password" placeholder="رمز مدیریت">
+
+
+<button onclick="adminLogin()">
+ورود
+</button>
+
+
+</div>
+
+
+
+<div class="card hidden" id="panel">
+
+
+<h2>
+⚽ ثبت نتیجه بازی
+</h2>
+
+
+<p>
+ایران 🇮🇷 - برزیل 🇧🇷
+</p>
+
+
+<input id="iranResult" placeholder="گل ایران">
+
+<input id="brazilResult" placeholder="گل برزیل">
+
+
+
+<h3>گل اول</h3>
+
+
+<select id="goalTeam">
+
+<option>ایران</option>
+<option>برزیل</option>
+<option>بدون گل</option>
+
+</select>
+
+
+<br>
+
+
+<button onclick="saveResult()">
+ثبت نتیجه
+</button>
+
+
+</div>
+
+
+</div>
+
+
+<script src="admin.js"></script>
+
+</body>
+
+</html>
