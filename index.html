@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>کل‌کل کلاب</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">
+👑
+<h1>کل‌کل کلاب</h1>
+<p>دنیای رقابت</p>
+</div>
+
+
+<div class="card" id="loginBox">
+
+<h2>ورود به کلاب</h2>
+
+<select id="player">
+
+<option>میلاد</option>
+<option>پیمان</option>
+<option>امید</option>
+<option>یاشار</option>
+<option>نیما</option>
+<option>حمید</option>
+<option>الشن</option>
+<option>آرزو</option>
+<option>شیوا</option>
+<option>مهسا</option>
+<option>معصومه</option>
+
+</select>
+
+
+<button onclick="login()">
+ورود
+</button>
+
+</div>
+
+
+
+<div class="card hidden" id="homeBox">
+
+<h2 id="welcome"></h2>
+
+<div class="score">
+
+⭐ امتیاز:
+<span id="score"></span>
+
+</div>
+
+
+<div class="menu">
+
+<button onclick="showGame()">
+⚽ بازی ایران - برزیل
+</button>
+
+
+<button onclick="ranking()">
+🏆 جدول رتبه
+</button>
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="card hidden" id="gameBox">
+
+<h2>
+⚽ ایران 🇮🇷 - برزیل 🇧🇷
+</h2>
+
+
+<p>
+نتیجه ۹۰ دقیقه
+</p>
+
+<input id="iranScore" placeholder="ایران">
+
+<input id="brazilScore" placeholder="برزیل">
+
+
+<p>
+گل اول
+</p>
+
+<select id="firstGoal">
+
+<option>ایران</option>
+<option>برزیل</option>
+<option>بدون گل</option>
+
+</select>
+
+
+<br><br>
+
+<button onclick="savePrediction()">
+ثبت پیش‌بینی
+</button>
+
+
+</div>
+
+
+
+
+<div class="card hidden" id="rankBox">
+
+<h2>
+🏆 جدول کلاب
+</h2>
+
+<div id="ranking"></div>
+
+</div>
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
