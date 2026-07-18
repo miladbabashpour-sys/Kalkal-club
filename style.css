@@ -1,163 +1,102 @@
-body{
-
-background:linear-gradient(160deg,#050505,#151515);
-color:white;
-font-family:tahoma,Arial,sans-serif;
-margin:0;
-min-height:100vh;
-
+*{
+box-sizing:border-box;
+font-family:tahoma, sans-serif;
 }
 
+body{
+margin:0;
+background:#111827;
+color:white;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
 
 .container{
-
-max-width:450px;
-margin:auto;
-padding:20px;
-
+width:95%;
+max-width:420px;
 }
-
 
 .logo{
-
 text-align:center;
-color:#d4af37;
-margin-top:20px;
-
+margin-bottom:20px;
 }
 
-
 .logo h1{
+margin:5px;
+font-size:32px;
+color:#facc15;
+}
 
-font-size:38px;
-margin:10px 0;
-letter-spacing:1px;
-
+.logo p{
+margin:0;
+color:#ddd;
 }
 
 
 .card{
-
-background:rgba(21,21,21,0.95);
-border:1px solid rgba(212,175,55,0.7);
-border-radius:24px;
+background:#1f2937;
 padding:25px;
-margin-top:20px;
-text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,0.5);
-transition:0.3s;
-
-}
-
-
-.card:hover{
-
-transform:translateY(-3px);
-box-shadow:0 15px 40px rgba(212,175,55,0.15);
-
-}
-
-
-select,input{
-
-width:90%;
-padding:14px;
-margin:10px 0;
-border-radius:12px;
-border:1px solid #333;
-background:#0d0d0d;
-color:white;
-font-size:15px;
-outline:none;
-transition:0.3s;
-
-}
-
-
-select:focus,input:focus{
-
-border-color:#d4af37;
-box-shadow:0 0 10px rgba(212,175,55,0.3);
-
-}
-
-
-button{
-
-background:linear-gradient(135deg,#d4af37,#f5d76e);
-color:#000;
-border:none;
-padding:14px 30px;
-border-radius:18px;
-font-weight:bold;
-cursor:pointer;
-margin:12px;
-font-size:15px;
-transition:0.3s;
-
-}
-
-
-button:hover{
-
-transform:scale(1.05);
-box-shadow:0 5px 20px rgba(212,175,55,0.35);
-
-}
-
-
-.score{
-
-font-size:28px;
-color:#d4af37;
-font-weight:bold;
-
+border-radius:20px;
+box-shadow:0 0 20px #000;
+margin-bottom:15px;
 }
 
 
 .hidden{
-
 display:none;
-
 }
 
 
-.rank{
+h2{
+text-align:center;
+}
 
+
+input{
+width:100%;
 padding:14px;
-border-bottom:1px solid #333;
-transition:0.3s;
-
+margin:8px 0;
+border:none;
+border-radius:10px;
+font-size:16px;
+text-align:center;
 }
 
 
-.rank:hover{
-
-background:#1c1c1c;
-
+button{
+width:100%;
+padding:14px;
+margin-top:10px;
+border:none;
+border-radius:12px;
+background:#facc15;
+color:#111;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
 }
 
 
-@media(max-width:480px){
+button:hover{
+opacity:.8;
+}
 
-.container{
 
+.score{
+background:#374151;
 padding:15px;
-
+border-radius:12px;
+text-align:center;
+margin:15px 0;
+font-size:20px;
 }
 
 
-.logo h1{
-
-font-size:32px;
-
-}
-
-
-.card{
-
-padding:20px;
-
-}
-
+#ranking{
+background:#374151;
+padding:15px;
+border-radius:10px;
+min-height:50px;
 }
