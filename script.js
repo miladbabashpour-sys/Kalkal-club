@@ -1,38 +1,51 @@
-let currentUser = "";
-let isAdmin = false;
+let currentUser = null;
 
 
-// کاربران اولیه
-let defaultUsers = {
-    "میلاد": {
-        password: "1234",
-        score: 50,
-        role: "user"
-    },
+// نمایش ثبت نام
+function showRegister(){
 
-    "پیمان": {
-        password: "1111",
-        score: 50,
-        role: "user"
-    },
+    document.getElementById("loginBox")
+    .classList.add("hidden");
 
-    "مدیر": {
-        password: "9999",
-        score: 1000,
-        role: "admin"
-    }
-};
+    document.getElementById("registerBox")
+    .classList.remove("hidden");
+
+}
 
 
 
-// ورود
-function login(){
+// برگشت به ورود
+function backLogin(){
 
-    let name = document.getElementById("playerName").value.trim();
-    let password = document.getElementById("playerPassword").value.trim();
+    document.getElementById("registerBox")
+    .classList.add("hidden");
+
+    document.getElementById("loginBox")
+    .classList.remove("hidden");
+
+}
 
 
-    if(!name || !password){
+
+
+// ثبت نام
+
+function register(){
+
+    let name =
+    document.getElementById("registerName").value.trim();
+
+
+    let pass =
+    document.getElementById("registerPassword").value.trim();
+
+
+    let pass2 =
+    document.getElementById("registerPassword2").value.trim();
+
+
+
+    if(!name || !pass){
 
         alert("نام و رمز را وارد کنید");
         return;
@@ -41,32 +54,108 @@ function login(){
 
 
 
-    let users = JSON.parse(localStorage.getItem("users"));
+    if(pass.length !== 4){
 
-
-    if(!users){
-
-        users = defaultUsers;
-
-        localStorage.setItem(
-            "users",
-            JSON.stringify(users)
-        );
-
-    }
-
-
-
-    if(!users[name]){
-
-        alert("این کاربر وجود ندارد");
+        alert("رمز باید ۴ رقم باشد");
         return;
 
     }
 
 
 
-    if(users[name].password !== password){
+    if(pass !== pass2){
+
+        alert("تکرار رمز درست نیست");
+        return;
+
+    }
+
+
+
+    let users =
+    JSON.parse(localStorage.getItem("users")) || {};
+
+
+
+    if(users[name]){
+
+        alert("این نام قبلاً ثبت شده");
+        return;
+
+    }
+
+
+
+    let firstUser =
+    Object.keys(users).length === 0;
+
+
+
+    users[name]={
+
+        password:pass,
+
+        score:50,
+
+        role:firstUser ? "admin" : "user"
+
+    };
+
+
+
+    localStorage.setItem(
+        "users",
+        JSON.stringify(users)
+    );
+
+
+
+    alert(
+        firstUser
+        ?
+        "حساب ساخته شد. شما مدیر کلاب هستید 👑"
+        :
+        "حساب ساخته شد"
+    );
+
+
+
+    backLogin();
+
+}
+
+
+
+
+
+// ورود
+
+function login(){
+
+    let name =
+    document.getElementById("loginName").value.trim();
+
+
+    let pass =
+    document.getElementById("loginPassword").value.trim();
+
+
+
+    let users =
+    JSON.parse(localStorage.getItem("users")) || {};
+
+
+
+    if(!users[name]){
+
+        alert("کاربری با این نام وجود ندارد");
+        return;
+
+    }
+
+
+
+    if(users[name].password !== pass){
 
         alert("رمز اشتباه است");
         return;
@@ -75,10 +164,7 @@ function login(){
 
 
 
-    currentUser = name;
-
-
-    isAdmin = users[name].role === "admin";
+    currentUser=name;
 
 
 
@@ -93,7 +179,7 @@ function login(){
 
     document.getElementById("welcome")
     .innerHTML =
-    "سلام " + name + " 👋";
+    "سلام "+name+" 👋";
 
 
 
@@ -103,7 +189,10 @@ function login(){
 
 
 
-    if(isAdmin){
+    // فقط مدیر دکمه مدیریت را می بیند
+
+    if(users[name].role==="admin"){
+
 
         document.getElementById("adminBtn")
         .classList.remove("hidden");
@@ -112,9 +201,10 @@ function login(){
         document.getElementById("adminBtn")
         .onclick=function(){
 
-            openAdmin();
+            alert("پنل مدیریت در حال ساخت است");
 
         };
+
 
     }
 
@@ -125,8 +215,7 @@ function login(){
 
 
 
-
-// رفتن به بازی
+// بازی
 
 function showGame(){
 
@@ -140,7 +229,8 @@ function showGame(){
 
 
 
-// برگشت به خانه
+
+// خانه
 
 function backHome(){
 
@@ -179,18 +269,17 @@ function ranking(){
 
     .sort((a,b)=>b[1].score-a[1].score)
 
-    .forEach((p,index)=>{
+    .forEach((user,index)=>{
 
 
         html += `
 
         <div class="rank">
 
-        ${index+1}
-        -
-        ${p[0]}
+        ${index+1} -
+        ${user[0]}
 
-        ⭐ ${p[1].score}
+        ⭐ ${user[1].score}
 
         </div>
 
@@ -211,44 +300,24 @@ function ranking(){
 
 
 
-
-// پنل مدیریت
-
-function openAdmin(){
-
-    hideAll();
-
-    document.getElementById("adminBox")
-    .classList.remove("hidden");
-
-}
-
-
-
-
-
-// مخفی کردن صفحات
-
 function hideAll(){
 
-    let boxes=[
+    let pages=[
 
         "homeBox",
         "gameBox",
-        "rankBox",
-        "adminBox"
+        "rankBox"
 
     ];
 
 
 
-    boxes.forEach(id=>{
+    pages.forEach(page=>{
 
-        document.getElementById(id)
+        document.getElementById(page)
         .classList.add("hidden");
 
     });
-
 
 }
 
@@ -256,12 +325,8 @@ function hideAll(){
 
 
 
-// ثبت پیش بینی
-
 function savePrediction(){
 
-    alert(
-        "✅ پیش‌بینی شما ثبت شد"
-    );
+    alert("✅ پیش‌بینی ثبت شد");
 
 }
