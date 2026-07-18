@@ -15,23 +15,20 @@
 
 <body>
 
-
 <div class="container">
 
 
 <div class="logo">
 
 👑
-
 <h1>کل‌کل کلاب</h1>
-
 <p>دنیای رقابت</p>
 
 </div>
 
 
 
-<!-- ورود -->
+<!-- صفحه ورود -->
 
 <div class="card" id="loginBox">
 
@@ -39,13 +36,11 @@
 <h2>ورود به کلاب</h2>
 
 
-<input 
-id="playerName"
-placeholder="نام شما">
+<input id="loginName" placeholder="نام شما">
 
 
 <input 
-id="playerPassword"
+id="loginPassword"
 type="password"
 maxlength="4"
 placeholder="رمز ۴ رقمی">
@@ -58,7 +53,62 @@ placeholder="رمز ۴ رقمی">
 </button>
 
 
+<button onclick="showRegister()">
+
+ثبت نام
+
+</button>
+
+
 </div>
+
+
+
+
+
+<!-- صفحه ثبت نام -->
+
+<div class="card hidden" id="registerBox">
+
+
+<h2>ثبت نام عضو جدید</h2>
+
+
+<input id="registerName" placeholder="نام شما">
+
+
+<input 
+id="registerPassword"
+type="password"
+maxlength="4"
+placeholder="رمز ۴ رقمی">
+
+
+<input 
+id="registerPassword2"
+type="password"
+maxlength="4"
+placeholder="تکرار رمز">
+
+
+<button onclick="register()">
+
+ساخت حساب
+
+</button>
+
+
+
+<button onclick="backLogin()">
+
+⬅ برگشت
+
+</button>
+
+
+</div>
+
+
 
 
 
@@ -69,9 +119,7 @@ placeholder="رمز ۴ رقمی">
 <div class="card hidden" id="homeBox">
 
 
-<h2 id="welcome">
-
-</h2>
+<h2 id="welcome"></h2>
 
 
 <div class="score">
@@ -87,28 +135,9 @@ placeholder="رمز ۴ رقمی">
 
 
 
-<div class="menu">
-
-
 <button onclick="showGame()">
 
 ⚽ فوتبال
-
-</button>
-
-
-
-<button>
-
-🎯 بازی حدس
-
-</button>
-
-
-
-<button>
-
-🎲 بازی دورهمی
 
 </button>
 
@@ -121,15 +150,10 @@ placeholder="رمز ۴ رقمی">
 </button>
 
 
-</div>
 
+<button id="adminBtn" class="hidden">
 
-
-<button 
-class="hidden"
-id="adminBtn">
-
-⚙ پنل مدیریت
+⚙ مدیریت
 
 </button>
 
@@ -141,9 +165,7 @@ id="adminBtn">
 
 
 
-
-<!-- بازی فوتبال -->
-
+<!-- بازی -->
 
 <div class="card hidden" id="gameBox">
 
@@ -155,67 +177,19 @@ id="adminBtn">
 </button>
 
 
-
 <h2>
-
-⚽ مسابقه فوتبال
-
+⚽ بازی فوتبال
 </h2>
 
 
 <p>
-
-پیش‌بینی‌های فعال:
-
+پیش‌بینی خود را ثبت کنید
 </p>
 
 
+<input placeholder="گل تیم اول">
 
-<div id="matches">
-
-
-<div class="card">
-
-
-<h3>
-ایران 🇮🇷 - برزیل 🇧🇷
-</h3>
-
-
-<p>
-نتیجه بازی
-</p>
-
-
-<input placeholder="گل ایران">
-
-<input placeholder="گل برزیل">
-
-
-
-<p>
-گل اول
-</p>
-
-
-<select>
-
-<option>
-ایران
-</option>
-
-
-<option>
-برزیل
-</option>
-
-
-<option>
-بدون گل
-</option>
-
-
-</select>
+<input placeholder="گل تیم دوم">
 
 
 <button onclick="savePrediction()">
@@ -223,12 +197,6 @@ id="adminBtn">
 ثبت پیش‌بینی
 
 </button>
-
-
-</div>
-
-
-</div>
 
 
 </div>
@@ -250,76 +218,15 @@ id="adminBtn">
 </button>
 
 
-
 <h2>
-
-🏆 جدول کلاب
-
+🏆 جدول
 </h2>
 
 
-<div id="ranking">
-
-</div>
+<div id="ranking"></div>
 
 
 </div>
-
-
-
-
-
-
-
-<!-- پنل مدیریت -->
-
-
-<div class="card hidden" id="adminBox">
-
-
-<button onclick="backHome()">
-
-⬅ برگشت
-
-</button>
-
-
-<h2>
-
-⚙ پنل مدیریت
-
-</h2>
-
-
-<p>
-
-ساخت مسابقه جدید
-
-</p>
-
-
-<input placeholder="نام مسابقه">
-
-
-<button>
-
-➕ اضافه کردن مسابقه
-
-</button>
-
-
-<hr>
-
-
-<p>
-
-مدیریت کاربران و امتیازات
-
-</p>
-
-
-</div>
-
 
 
 
