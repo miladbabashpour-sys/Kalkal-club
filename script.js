@@ -1,3 +1,6 @@
+alert("script جدید فعال شد");
+
+let currentUser = null;
 let currentUser = null;
 
 
