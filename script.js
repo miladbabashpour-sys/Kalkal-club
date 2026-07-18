@@ -1,3 +1,4 @@
+alert("سلام");
 alert("script جدید فعال شد");
 
 let currentUser = null;
