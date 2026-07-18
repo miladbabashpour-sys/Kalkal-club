@@ -1,66 +1,72 @@
-function adminLogin(){
+function loadUsers(){
+
+    let users =
+    JSON.parse(localStorage.getItem("users") || "[]");
 
 
-let pass=document.getElementById("password").value;
+    let box=document.getElementById("usersList");
 
 
-if(pass=="milad"){
+    if(users.length===0){
+
+        box.innerHTML="هنوز کاربری ثبت نشده";
+
+        return;
+
+    }
 
 
-document
-.getElementById("loginAdmin")
-.classList.add("hidden");
+    box.innerHTML = users.map((u,index)=>{
+
+        return `
+        <div class="card">
+
+        👤 ${u.username}
+        <br>
+        ⭐ امتیاز: ${u.score}
+
+        <br><br>
+
+        <button onclick="addScore(${index})">
+        + امتیاز
+        </button>
+
+        </div>
+        `;
+
+    }).join("");
+
+}
 
 
-document
-.getElementById("panel")
-.classList.remove("hidden");
 
+function addScore(index){
+
+    let users =
+    JSON.parse(localStorage.getItem("users") || "[]");
+
+
+    users[index].score += 1;
+
+
+    localStorage.setItem(
+        "users",
+        JSON.stringify(users)
+    );
+
+
+    loadUsers();
 
 }
 
-else{
-
-alert("رمز اشتباه است");
-
-}
 
 
-}
+function backSite(){
 
-
-
-function saveResult(){
-
-
-let result={
-
-
-iran:
-document.getElementById("iranResult").value,
-
-
-brazil:
-document.getElementById("brazilResult").value,
-
-
-firstGoal:
-document.getElementById("goalTeam").value
-
-
-};
-
-
-localStorage.setItem(
-"matchResult",
-JSON.stringify(result)
-);
-
-
-
-alert(
-"✅ نتیجه ثبت شد و آماده محاسبه امتیاز است"
-);
-
+    window.location.href="index.html";
 
 }
+
+
+
+loadUsers();
