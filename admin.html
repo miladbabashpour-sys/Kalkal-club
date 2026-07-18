@@ -2,15 +2,18 @@
 <html lang="fa" dir="rtl">
 
 <head>
+
 <meta charset="UTF-8">
-<title>پنل مدیریت کل‌کل کلاب</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>پنل مدیریت</title>
 
 <link rel="stylesheet" href="style.css">
 
 </head>
 
-<body>
 
+<body>
 
 <div class="container">
 
@@ -18,64 +21,27 @@
 <div class="logo">
 👑
 <h1>پنل مدیریت</h1>
+<p>کل‌کل کلاب</p>
 </div>
 
 
 
-<div class="card" id="loginAdmin">
-
-
-<h2>ورود میلاد</h2>
-
-
-<input id="password" placeholder="رمز مدیریت">
-
-
-<button onclick="adminLogin()">
-ورود
-</button>
-
-
-</div>
-
-
-
-<div class="card hidden" id="panel">
-
+<div class="card">
 
 <h2>
-⚽ ثبت نتیجه بازی
+مدیریت کاربران
 </h2>
 
 
-<p>
-ایران 🇮🇷 - برزیل 🇧🇷
-</p>
+<div id="usersList">
+
+</div>
 
 
-<input id="iranResult" placeholder="گل ایران">
+<button onclick="backSite()">
 
-<input id="brazilResult" placeholder="گل برزیل">
+⬅ برگشت به سایت
 
-
-
-<h3>گل اول</h3>
-
-
-<select id="goalTeam">
-
-<option>ایران</option>
-<option>برزیل</option>
-<option>بدون گل</option>
-
-</select>
-
-
-<br>
-
-
-<button onclick="saveResult()">
-ثبت نتیجه
 </button>
 
 
@@ -83,6 +49,7 @@
 
 
 </div>
+
 
 
 <script src="admin.js"></script>
