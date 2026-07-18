@@ -8,6 +8,8 @@ let currentUser = null;
 // نمایش ثبت نام
 function showRegister(){
 
+    alert("دکمه ثبت نام کار کرد");
+
     document.getElementById("loginBox")
     .classList.add("hidden");
 
