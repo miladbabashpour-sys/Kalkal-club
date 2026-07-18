@@ -1,5 +1,5 @@
-const SUPABASE_URL = "اینجا API URL خودت";
-const SUPABASE_KEY = "اینجا Publishable key خودت";
+const SUPABASE_URL = "https://ffauqosscnjlfsfmzfym.supabase.co/rest/v1/";
+const SUPABASE_KEY = "sb_publishable_KTyGoh2PdQOp9I9iuEUH1w_wK42P32o";
 
 const supabaseClient = supabase.createClient(
     SUPABASE_URL,
