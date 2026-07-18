@@ -1,9 +1,10 @@
 body{
 
-background:#080808;
+background:linear-gradient(160deg,#050505,#151515);
 color:white;
-font-family:tahoma;
+font-family:tahoma,Arial,sans-serif;
 margin:0;
+min-height:100vh;
 
 }
 
@@ -21,25 +22,38 @@ padding:20px;
 
 text-align:center;
 color:#d4af37;
+margin-top:20px;
 
 }
 
 
 .logo h1{
 
-font-size:35px;
+font-size:38px;
+margin:10px 0;
+letter-spacing:1px;
 
 }
 
 
 .card{
 
-background:#151515;
-border:1px solid #d4af37;
-border-radius:20px;
-padding:20px;
+background:rgba(21,21,21,0.95);
+border:1px solid rgba(212,175,55,0.7);
+border-radius:24px;
+padding:25px;
 margin-top:20px;
 text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
+transition:0.3s;
+
+}
+
+
+.card:hover{
+
+transform:translateY(-3px);
+box-shadow:0 15px 40px rgba(212,175,55,0.15);
 
 }
 
@@ -47,32 +61,56 @@ text-align:center;
 select,input{
 
 width:90%;
-padding:12px;
-margin:8px;
-border-radius:10px;
-border:none;
+padding:14px;
+margin:10px 0;
+border-radius:12px;
+border:1px solid #333;
+background:#0d0d0d;
+color:white;
+font-size:15px;
+outline:none;
+transition:0.3s;
+
+}
+
+
+select:focus,input:focus{
+
+border-color:#d4af37;
+box-shadow:0 0 10px rgba(212,175,55,0.3);
 
 }
 
 
 button{
 
-background:#d4af37;
-color:black;
+background:linear-gradient(135deg,#d4af37,#f5d76e);
+color:#000;
 border:none;
-padding:12px 25px;
-border-radius:15px;
+padding:14px 30px;
+border-radius:18px;
 font-weight:bold;
 cursor:pointer;
-margin:10px;
+margin:12px;
+font-size:15px;
+transition:0.3s;
+
+}
+
+
+button:hover{
+
+transform:scale(1.05);
+box-shadow:0 5px 20px rgba(212,175,55,0.35);
 
 }
 
 
 .score{
 
-font-size:25px;
+font-size:28px;
 color:#d4af37;
+font-weight:bold;
 
 }
 
@@ -86,7 +124,40 @@ display:none;
 
 .rank{
 
-padding:10px;
-border-bottom:1px solid #444;
+padding:14px;
+border-bottom:1px solid #333;
+transition:0.3s;
+
+}
+
+
+.rank:hover{
+
+background:#1c1c1c;
+
+}
+
+
+@media(max-width:480px){
+
+.container{
+
+padding:15px;
+
+}
+
+
+.logo h1{
+
+font-size:32px;
+
+}
+
+
+.card{
+
+padding:20px;
+
+}
 
 }
